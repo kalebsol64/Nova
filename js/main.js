@@ -1,0 +1,1 @@
+console.log("Nova Studio JS loaded successfully!");

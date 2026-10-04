@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content ="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Nova studio - A modern digital agency specializing in web develpoment and UI/UX design.">
+        <title>Nova Studio | Digital Agency</title>
+
+        <!--CSS-->
+        <link rel="stylesheet" href="css/style.css">
+        </head>
+    <body>
+       <header class="site-header">
+        <div calss="container">
+            <!-- Logo-->
+            <a href="#" class="logo">Nova<span>.</span></a>
+
+
+            <!--Navigation-->
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul class="nav-link">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Work</a></li>
+                    <li><a href="#contact" class="btn btn-primary">Let's Talk</a></li>
+                </ul>
+            </nav>
+
+            <!--Interactive Toggles (Will function later via JS)-->
+            <button class="theme-toggle" arial-label="Toggle Dark Mode">🌙</button>
+            <button class="mobile-menu-btn" arial-lable="Open Mobile Menu" arial-expanded="false">☰</button>
+        </div>
+       </header>
+
+       <main>
+        <!-- Hero Section-->
+         <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>We craft digital experiences that <span class="highlight">inspire</span></h1>
+                    <p>Nova Studio is a full-service digital agency focused on modern web development, intuitive UI/UX, and brand strategy.</p>
+
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+                        <a href="#contact" class="btn btn-outline">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+         </section>
+
+         <!--services Section-->
+         <section id="services" class="services">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <p>We provide a comprehensive digital solution to help your business grow</p>
+                </div>
+
+                <div class="services-grid">
+
+                    <!-- Service Card 1-->
+                     <div class="service-card">
+                        <div class="service-icon">🎨</div>
+                        <h3>UI/UX Design</h3>
+                        <p>We create a Beautiful, intuitive, and user-centric interfaces that engage your audience and attracts customers</p>
+                     </div>
+
+                    <!-- Service Card 2-->
+                     <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3>Web Development</h3>
+                        <p>We build responsive, fast, and secure websites that are optimized for performance and search engines</p>
+                         </div>
+
+                    <!-- Service Card 3-->
+                     <div class="service-card">
+                        <div class="service-icon" aria-hidden="true">🚀</div>
+                        <h3>Brand Strategy</h3>
+                        <p>We provide Data-driven strategies to elevate your brand identity and digital presence and help you define and communicate your brand message to connect with your target audience</p>
+                     </div>
+                </div>
+            </div>
+         </section>
+
+         <!-- Portfolio Section -->
+          <section id ="portfolio" class="portfolio">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2>Selected Work</h2>
+                    <p>Here are some of our recent projects that showcase our design and development capabilities.</p>
+                </div>
+
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="design">Design</button>
+                </div>
+
+               <!-- Portfolio Grid -->    
+                <div class="portfolio-grid">
+                    
+                    <!-- Portfolio 1 -->
+                     <div class="porfolio-card" data-category="web">
+                        <div class="caed-image-placeholder">Web Project Image</div>
+                        <div class="card-content">
+                            <h3>Fintech Dashboard</h3>
+                            <p>Web Development</p>
+                        </div>
+                     </div>
+                     
+                    <!-- Portfolio 2 -->
+                     <div class="portfolio-card" data-category="design">
+                        <div class="card-image-placeholder">Design Project Image</div>
+                        <div class="card-content">
+                            <h3>Eco Brand Identity</h3>
+                            <p>UI/UX Design</p>
+                        </div>
+                     </div>
+
+                    <!-- Portfolio 3 -->
+                     <div class="portfolio-card" data-category="web">
+                        <div class="card-image-placeholder">Web Project Image</div>
+                        <div class="card-content">
+                            <h3>Retail eCommerce Platform</h3>
+                            <p>Web Development</p>
+                        </div>
+                </div>
+
+                <!-- Portfolio 4 -->
+                 <div class="portfolio-card" data-category="design">
+                    <div class="card-image-placeholder">Design Project Image</div>
+                    <div class="card-content">
+                        <h3>Travel App UI/UX</h3>
+                        <p>UI/UX Design</p>
+                    </div>
+                </div>
+            </div>
+          </section>
+
+         <!--Future Sections-->
+         </main>
+
+        <!-- JavaScript -->
+        <script src="js/main.js" defer></script>
+    </body>
+</html>
