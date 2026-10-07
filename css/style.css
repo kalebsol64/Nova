@@ -161,5 +161,186 @@
     display: none; /* We hide the hamburger menu on the desktop monitors*/
 }
 
+.hero {
+    min-height: 90vh; /* Takes up 90% of the screen height */
+    display: flex;
+    align-items: center; /* Vertiaclly center the content */
+    background-color: var(--color-bg);
+    padding: 4rem 0;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);/* Fluid fot: scales with screen size */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
 
 
+/* This is the shared styles for all sections*/
+
+.services,
+.portfolio,
+.contact {
+    padding: 5rem 0;
+}
+
+/* Section titles shared across the page */
+.section header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.section-header p {
+    color: var(--color-text-muted);
+    max-width: 550px;
+    margin: 0 auto;/* Centers the paragraph under the heading */
+}
+
+/* Services Section */
+
+.services {
+    background-color: #f8fafc;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--color-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    transition: var(--transition);/* This gives us a smooth animation on hover */
+}
+
+.service-card:hover {
+    transform: translateY(-6px); /* Moves the card 6px upward */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.2rem;
+    font-width: 600;
+    margin-bottom: 0.75rem;
+}
+
+.service-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .services-grid{
+        grid-template-columns: 1fr;
+    }
+    .nav-links {
+        display: none;
+    }
+    .mobile-menu-btn {
+        display: inline;
+    }
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-bg);
+        padding:1.5rem 20px;
+        border-bottom: 1px solid #eaeaea;
+    }
+}
+
+/* Portflio Section */
+
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.25rem;
+    background-color: transparent;
+    border: 2px solid #eaeaea;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+.portfolio-card {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card-image-placeholder {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: #ffffff;
+    font-weight: 600;
+}
+.card-content {padding: 1.5rem;}
+.card-content h3 {font-size: 1.2rem; margin-bottom: 0.25rem}
+.card-content p {color: var(--color-text-muted); font-size: 0.95rem; }
