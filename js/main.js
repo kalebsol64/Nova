@@ -66,3 +66,44 @@ document.querySelector('#form-success').textContent = '';
         contactForm.reset();
     }
 });
+
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.portfolio-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        cards.forEach(card =>  {
+            const matches = filter === 'all' || card.dataset.category === filter;
+            card.classList.toggle('hidden', !matches);
+        });
+    })
+});
+
+
+// DARK MODE
+
+const themeToggle = document.querySelector('.theme-toggle');
+const root = document.documentElement;
+
+function setTheme(theme) {
+    if (theme === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';
+    }else {
+        root.removeAttribute('data-theme');
+        themeToggle.textContent =  '🌙';
+    }
+    localStorage.setItem('theme', theme);
+}
+
+setTheme(localStorage.getItem('theme') || 'light');
+
+themeToggle.addEventListener('click',() => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    setTheme(isDark ? 'light' : 'dark');
+});

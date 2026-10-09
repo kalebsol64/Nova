@@ -8,6 +8,9 @@
     --color-primary: #2563eb;
     --color-primary-hover: #1d4ed8;
     --color-accent: #f97316;
+    --color-surface: #f8fafc;
+    --color-border: #eaeaea;
+    
 
 
    /* Typography */
@@ -17,6 +20,15 @@
     --container-width: 1200px;
     --transition: all 0.3s ease;
 }
+
+    /*DarkMode*/
+    [data-theme="dark"] {
+    --color-bg: #0f172a;
+    --color-text: #f1f5f9;
+    --color-text-muted: #94a3b8;
+    --color-surface: #1e293b;
+    --color-border: #334155; 
+    }
 
     /* CSS RESET */
     *, *::before, *::after {
@@ -108,7 +120,7 @@
 
 .site-header {
     background-color: var(--color-bg);
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid var(--color-border);
     position: sticky;/*Makes the header stick to the top of the page when scrolling */
     top: 0;
     z-index: 1000;/* Ensures the header is above other content */
@@ -223,7 +235,7 @@
 /* Services Section */
 
 .services {
-    background-color: #f8fafc;
+    background-color: var(--color-surface);
 }
 
 .services-grid {
@@ -236,7 +248,7 @@
     background-color: var(--color-bg);
     padding: 2rem;
     border-radius: 8px;
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--color-border);
     transition: var(--transition);/* This gives us a smooth animation on hover */
 }
 
@@ -284,7 +296,7 @@
         width: 100%;
         background-color: var(--color-bg);
         padding:1.5rem 20px;
-        border-bottom: 1px solid #eaeaea;
+        border-bottom: 1px solid var(--color-border);
     }
     .portfolio-grid {
         grid-template-columns: 1fr ;
@@ -304,7 +316,7 @@
 .filter-btn {
     padding: 0.5rem 1.25rem;
     background-color: transparent;
-    border: 2px solid #eaeaea;
+    border: 2px solid var(--color-border);
     border-radius: 999px;
     font-family: inherit;
     font-size: 0.95rem;
@@ -327,7 +339,7 @@
     gap: 2rem;
 }
 .portfolio-card {
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     overflow: hidden;
     transition: var(--transition);
@@ -336,6 +348,10 @@
 .portfolio-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-card.hidden {
+    display: none;
 }
 
 .card-image-placeholder {
@@ -352,7 +368,7 @@
 .card-content p {color: var(--color-text-muted); font-size: 0.95rem; }
 
 /* CONTACT SECTION */
-.contact{ background-color: #f8fafc;}
+.contact{ background-color: var(--color-surface);}
 
 .contact-wrapper {
     max-width: 600px;
@@ -365,7 +381,7 @@
     gap: 1.5rem;
     background-color: var(--color-bg);
     padding: 2rem;
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
 }
 
@@ -383,12 +399,13 @@
 .form-group input,
 .form-group textarea {
     padding: 0.8rem 1rem;
-    border: 2px solid #eaeaea;
+    border: 2px solid var(--color-border);
     border-radius: 4px;
     font-family: inherit;
     font-size: 1rem;
     color: var(--color-text);
     transition: var(--transition);
+    background-color: var(--color-bg);
 }
 
 .from-group input:focus,
