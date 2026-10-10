@@ -101,9 +101,12 @@ function setTheme(theme) {
     localStorage.setItem('theme', theme);
 }
 
-setTheme(localStorage.getItem('theme') || 'light');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+setTheme(localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light'));
 
 themeToggle.addEventListener('click',() => {
     const isDark = root.getAttribute('data-theme') === 'dark';
     setTheme(isDark ? 'light' : 'dark');
 });
+
+document.querySelector('#year').textContent = new Date().getFullYear();
