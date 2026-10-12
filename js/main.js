@@ -34,14 +34,18 @@ function clearError(input) {
     input.classList.remove('invalid');
 }
 
-contactForm.addEventListener('submit', (event) => {
+/* THIS IS OUR CONTACT FORM VALIDATION SECTION*/
+contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     let isValid = true;
 
+    // Clear previous errors
     clearError(nameInput);
     clearError(emailInput);
     clearError(messageInput);
-document.querySelector('#form-success').textContent = '';
+    document.querySelector('#form-success').textContent = '';
+
+    // Validation (exactly what you had before)
     if (nameInput.value.trim() === '') {
         showError(nameInput, 'Please enter your name.');
         isValid = false;
@@ -60,10 +64,34 @@ document.querySelector('#form-success').textContent = '';
         isValid = false;
     }
 
+    // NEW: Actually send the data if valid
     if (isValid) {
-        const successMsg =document.querySelector('#form-success');
-        successMsg.textContent = 'Thanks! Your message has been sent.';
-        contactForm.reset();
+        const submitBtn = contactForm.querySelector('.btn-submit');
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch('https://formspree.io/f/xoejlzvv', {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                const successMsg = document.querySelector('#form-success');
+                successMsg.textContent = '✅ Thanks! Your message has been sent.';
+                contactForm.reset();
+            } else {
+                const successMsg = document.querySelector('#form-success');
+                successMsg.textContent = '❌ Something went wrong. Please try again.';
+            }
+        } catch (error) {
+            const successMsg = document.querySelector('#form-success');
+            successMsg.textContent = '❌ Network error. Check your connection.';
+        } finally {
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
+        }
     }
 });
 
